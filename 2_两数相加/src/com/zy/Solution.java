@@ -18,12 +18,6 @@ import java.util.List;
 public class Solution {
 
     public static void main(String[] args) {
-        int i = 1;
-        int b = 2;
-        if((i += b) > 2){
-            System.out.println(111);
-            System.out.println(i);
-        }
 
     }
 
