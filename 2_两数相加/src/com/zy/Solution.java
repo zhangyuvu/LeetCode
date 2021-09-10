@@ -22,12 +22,12 @@ public class Solution {
     }
 
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        int temp = 0;
-        int l1Size = 1;
-        int l2Size = 1;
+        int temp = 0;  // 记录进位数值
+        int l1Size = 1;	// 链表l1的长度
+        int l2Size = 1; // 链表l2的长度
         ListNode tempNode = l1;
         ListNode shortNode = null;
-        int size = 0;
+        int size = 0;  // 最终节点相加的次数（循环的次数）
 
         // 获取两个链表的长度
         while (tempNode.next != null){
@@ -40,6 +40,7 @@ public class Solution {
             l2Size++;
         }
 
+        // 获取短的链表的长度为循环次数，并且操作长的链表
         if(l1Size > l2Size){
             tempNode = l1;
             shortNode = l2;
@@ -51,26 +52,27 @@ public class Solution {
         }
 
 
-        // 取其中长度短的作为循环的条件
-        for (int i = 0; i < size; i++){
 
+        for (int i = 0; i < size; i++){
+            // 开始之前就将temp值加上去
             shortNode.val += temp;
 
             if((tempNode.val += shortNode.val) >=10 ){
-                temp = 1;
+                temp = 1; // 赋值的同时修改temp的值
                 tempNode.val -= 10;
             }else {
-                temp = 0;
+                temp = 0;  // 为满足进位条件修改temp的值
             }
 
-            shortNode = i == size - 1 ? tempNode : shortNode.next;  // 遍历到最后一次准备出循环的时候 让shortNode 拿到tempNode的当前值 为后续判断做准备
+            // 遍历到最后一次准备出循环的时候 让shortNode 拿到tempNode的当前值 为后续判断做准备
+            shortNode = i == size - 1 ? tempNode : shortNode.next;
             tempNode = tempNode.next;
 
         }
 
         // 遍历长链表剩下的部分 如果temp还是1 则往后面节点加一
         while ( temp == 1 ){
-            if(tempNode == null){
+            if(tempNode == null){ // 最后一个节点是Null 并且temp等于1 的时候新建节点
 
                 shortNode.next = new ListNode(1);
                 break;
@@ -78,14 +80,14 @@ public class Solution {
             } else if( (tempNode.val += 1) >= 10){
 
                 tempNode.val -= 10;
-                shortNode = tempNode;
+                shortNode = tempNode; // 始终记录下tempNode的当前节点 以免tempNode.next为null
                 tempNode = tempNode.next;
 
             }else {
                 break;
             }
         }
-
+        // 返回长链表的头部节点
         return size == l1Size ? l2 : l1;
     }
 
