@@ -46,10 +46,10 @@ public class Solution {
         }else{
             for (int i = 0; i < chalk.length ; i++ ){
                 k -= chalk[i];
-                if(k == 0){  // k在那一组被用完
+                if(k == 0){  // k在那一组被用完 就返回下一组的值
                     return  i == chalk.length - 1 ? 0 : ++i ;  // 又吃一坑， 返回i++ 等于 返回 i
                 }else if(k < 0){
-                    return i;
+                    return i;  // k小于0 代表当前组需要补充粉笔
                 }
             }
         }
