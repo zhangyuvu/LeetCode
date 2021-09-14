@@ -20,35 +20,6 @@ import java.util.*;
  */
 public class Solution {
 
-    public static void main(String[] args) {
-        ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add("e");
-        arrayList.add("bb");
-        arrayList.add("ccc");
-        arrayList.add("ddd");
-        arrayList.add("a");
-        arrayList.add("ffff");
-        arrayList.add("hhhh");
-        arrayList.add("aaaa");
-
-        System.out.println("a".compareTo("b"));
-
-
-
-//        Collections.sort(arrayList);
-//        Collections.sort(arrayList, new Comparator<String>() {
-//            @Override
-//            public int compare(String o1, String o2) {
-//                int res = o2.length() - o1.length();  // 长的字符串排前面
-//                if(res == 0){
-////                    res =  arrayList.indexOf(o1) - arrayList.indexOf(o2);  // 字符串长度相等的
-//                    res = o2.compareTo(o1);  // 字符串长度相等的
-//                }
-//                return res;
-//            }
-//        });
-        System.out.println(arrayList.toString());
-    }
 
     public String findLongestWord(String s, List<String> dictionary) {
 
