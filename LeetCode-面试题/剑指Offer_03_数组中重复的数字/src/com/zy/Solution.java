@@ -26,8 +26,7 @@ public class Solution {
     public int findRepeatNumber(int[] nums) {
         HashSet<Integer> hashSet = new HashSet<>();
         for (int num : nums) {
-            if(hashSet.contains(num)) return num;
-            hashSet.add(num);
+            if(!hashSet.add(num)) return num;
         }
         return 0;
     }
