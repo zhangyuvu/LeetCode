@@ -11,7 +11,7 @@ public class Solution {
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        System.out.println(solution.findNumberIn2DArray(new int[][]{{1, 2, 3}, {4, 5, 6}}, 6));
+        System.out.println(solution.findNumberIn2DArray(new int[][]{{1, 2, 3}, {4, 5, 6}}, 3));
     }
 
 
@@ -21,10 +21,9 @@ public class Solution {
         int column = 0;
 
         while ( row >= 0 && column < matrix[row].length ){
-            int root = matrix[row][column]; // 左下角的第一个元素为根节点
-            if(root > target){
+            if(matrix[row][column] > target){
                 --row;
-            }else if(root < target){
+            }else if(matrix[row][column] < target){
                 ++column;
             }else {
                 return true;
