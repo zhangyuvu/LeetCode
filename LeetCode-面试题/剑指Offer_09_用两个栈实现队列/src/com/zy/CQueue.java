@@ -1,7 +1,5 @@
 package com.zy;
 
-import java.util.Deque;
-import java.util.LinkedList;
 import java.util.Stack;
 
 /**
@@ -17,8 +15,8 @@ import java.util.Stack;
  */
 public class CQueue {
 
-    Stack<Integer> appendStack;
-    Stack<Integer> deleteStack;
+    Stack<Integer> appendStack; // 添加元素的栈
+    Stack<Integer> deleteStack;	// 删除元素的栈
 
     public CQueue() {
         appendStack = new Stack<>();
@@ -32,14 +30,14 @@ public class CQueue {
     public int deleteHead() {
         if(deleteStack.isEmpty()){
             if(appendStack.isEmpty()){
-                return -1;
+                return -1;  // 两个栈都是空的就返回 -1
             }else {
                 while (!appendStack.isEmpty()){
-                    deleteStack.push(appendStack.pop());
+                    deleteStack.push(appendStack.pop()); // 删除元素的栈中镁元素了 就去添加元素的栈中取元素
                 }
             }
         }
 
-        return deleteStack.pop();
+        return deleteStack.pop(); // pop出的元素就是队头元素
     }
 }
