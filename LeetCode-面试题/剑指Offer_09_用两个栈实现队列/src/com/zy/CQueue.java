@@ -33,7 +33,7 @@ public class CQueue {
                 return -1;  // 两个栈都是空的就返回 -1
             }else {
                 while (!appendStack.isEmpty()){
-                    deleteStack.push(appendStack.pop()); // 删除元素的栈中镁元素了 就去添加元素的栈中取元素
+                    deleteStack.push(appendStack.pop()); // 删除元素的栈中没元素了 就去添加元素的栈中取元素
                 }
             }
         }
