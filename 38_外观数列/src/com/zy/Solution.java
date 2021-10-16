@@ -44,14 +44,10 @@ public class Solution {
         dp[1] = "1";  // 边界
 
         for (int i = 2 ; i <= n ; i++){ // dp[i] 描述 dp[i-1]
-
             dp[i & 1] = description(dp[(i - 1) & 1]);
-
         }
-
         return (n & 1) == 1 ? dp[1] : dp[0];
     }
-
 
     public String description(String temp){
         StringBuilder builder = new StringBuilder();
